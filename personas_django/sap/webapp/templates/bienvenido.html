@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido</title>
+  </head>
+  <body>
+    <h1>Bienvenido al sistema administracion de personas SAP</h1>
+    <!--<div>
+        {{msg1}}
+    </div>!-->
+    <div>Numero de personas: {{no_personas}}</div>
+    <div>
+      <a href="nueva_persona">agregar persona</a>
+    </div>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for persona in personitas %}
+        <tr>
+          <td>{{persona.id}}</td>
+          <td>{{persona.nombre}} {{persona.apellido}}</td>
+
+          <td>{{persona.email}}</td>
+          <td><a href="detalle_persona/{{persona.id}}">ver detalle</a></td>
+          <td><a href="editar_persona/{{persona.id}}">EDITAR</a></td>
+          <td><a href="eliminar_persona/{{persona.id}}">ELIMINAR</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
